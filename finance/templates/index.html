@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+
+<table style="width:100%">
+  <tr>
+    <th>Company</th>
+    <th>Symbol</th>
+    <th>Price</th>
+    <th>Shares</th>
+    <th>Value</th>
+  </tr>
+
+      {% for row in rows %}
+      <tr>
+          <td>{{ row['company'] }}</td>
+          <td> {{ row['symbol'] }} </td>
+          <td> ${{ row['price'] }} </td>
+          <td> {{ row['total_shares'] }} </td>
+          <td> ${{ row['value'] }} </td>
+      </tr>
+      {% endfor %}
+
+  <tr>
+    <td>CASH ON HAND</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td>$ {{cash}} </td>
+  </tr>
+
+</table>
+
+<div id=loan>
+<h3> Need More Cash?</h3>
+<br>
+<form action="/" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="loan" placeholder="MAX $10,000" type="number">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Borrow</button>
+    </form>
+  </div>
+
+{% endblock %}

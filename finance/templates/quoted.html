@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+<table style="width:100%">
+  <tr>
+    <th>Company</th>
+    <th>Price</th>
+    <th>Symbol</th>
+  </tr>
+  <tr>
+      <td> {{ table['name'] }} </td>
+      <td> ${{ table['price'] }} </td>
+      <td>{{ table['symbol'] }} </td>
+
+   </tr>
+</table>
+
+
+<a href="/quote">Get another quote</a>
+<br>
+<a href ="/">Go to your dashboard</a>
+
+{% endblock %}
